@@ -16,11 +16,7 @@
     "incremental": true,
     "baseUrl": "src"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/pages/index.tsx"
-  ],
-  "exclude": ["node_modules"]
+
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/create.js"],
+  "exclude": ["node_modules"],
 }
