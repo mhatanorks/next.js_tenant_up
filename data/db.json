@@ -1,36 +1,54 @@
 {
   "items": [
     {
-      "name": "ピザ",
-      "id": 1,
-      "description": "おいしい",
-      "price": 200,
-      "imageUrl": "/src/public/ponsuke.JPG",
-      "deleted": false
-    },
-    {
       "name": "うに",
-      "id": 2,
-      "description": "まろやか",
-      "price": 800,
-      "imageUrl": "/src/public/ponsuke.JPG",
-      "deleted": false
+      "price": "800",
+      "description": "うにってしてる",
+      "boolean": false,
+      "id": 5
     },
     {
-      "name": "たこ",
-      "id": 3,
-      "description": "くっつく",
-      "price": 400,
-      "imageUrl": "/src/public/ponsuke.JPG",
-      "deleted": false
-    },
-    {
-      "id": 4
+      "name": "うなぎピザうどん",
+      "price": "20",
+      "description": "おいしい",
+      "deleted": false,
+      "id": 8
     },
     {
       "name": "たけバンブー",
-      "price": "24000",
-      "id": 5
+      "price": "20",
+      "description": "長い",
+      "deleted": false,
+      "id": 9
+    },
+    {
+      "name": "カツレツスパゲッティ丼",
+      "price": "2000",
+      "description": "うめえ",
+      "deleted": false,
+      "id": 10
+    },
+    {
+      "name": "チョコやま",
+      "price": "200",
+      "description": "バレンタイン",
+      "deleted": false,
+      "id": 11
+    },
+    {
+      "name": "たこ",
+      "price": "300",
+      "description": "おいしい",
+      "deleted": false,
+      "id": 12
+    },
+    {
+      "name": "鶏肉",
+      "price": "300",
+      "description": "タンパク質",
+      "deleted": false,
+      "file": "",
+      "id": 13
     }
   ]
 }

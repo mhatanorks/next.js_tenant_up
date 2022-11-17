@@ -14,16 +14,30 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import useSWR from 'swr';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'; 
 // const router = useRouter();
 
 const Create = () => {
+  const router = useRouter()
   // submit したときにdbに追加する
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [file, setFile] = useState('');
+  const [deleted, setDeleted] = useState(false);
+
+  function command () {
+    if (!name || !description) {
+      alert('商品名、説明は入力して');
+      router.reload() as any; // .reloaded()
+    } else {
+      submitTask()
+    }
+  }
 
   function submitTask() {
-    const data = { name, price };
+    const data = { name, price, description, deleted, file };
     fetch('http://localhost:8000/items', {
       method: 'POST',
       headers: {
@@ -32,12 +46,13 @@ const Create = () => {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
         console.log('Success:', data);
-      });
+      })
+      .then(router.push("/")as any) // .reloaded()
   }
-  console.log(name);
+  // console.log(name);
 
   return (
     <div>
@@ -48,7 +63,7 @@ const Create = () => {
 
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-          <label htmlFor="">商品</label>
+          <label htmlFor="">商品*</label>
           <input
             type="text"
             name="name"
@@ -67,10 +82,30 @@ const Create = () => {
           />
         </div>
 
+        <div>
+          <label htmlFor="">説明*</label>
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="">画像</label>
+          <input
+            type="file"
+            name="file"
+            value={file}
+            onChange={(e) => setFile(e.target.value)}
+          />
+        </div>
+
         <input
           type="submit"
           value="追加"
-          onClick={submitTask} //なんか変　オンクリックレアくと
+          onClick={ command }
         />
       </form>
       <App />
@@ -88,9 +123,8 @@ APIから取得した商品一覧を表示する。商品ごとに詳細画面/�
 表示項目は ID と 名前、説明の 3 つとする。削除ボタンが押されたときは、対象の商品を削除して一覧画面を再描画する。
 */
 
-// データ取得
-
-const fetcher = (resource, init) =>
+// データ取得表示用　後で消す
+const fetcher = (resource :any, init :any) =>
   fetch(resource, init).then((res) => res.json());
 
 function App() {
@@ -107,7 +141,7 @@ function App() {
   return (
     <table>
       <tbody>
-        {data.map((item) => {
+        {data.map((item :any) => {
           return (
             <tr key={item.id}>
               <td>{item.id}</td>
@@ -119,3 +153,13 @@ function App() {
     </table>
   );
 }
+
+
+
+/*
+if (!name || !description) {
+  alert('商品名、説明は入力して');
+  data.abort();
+  router.reload() as any // .reloaded()
+}
+*/

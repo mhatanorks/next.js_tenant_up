@@ -18,7 +18,8 @@ const ItemListPage = (context: string) => {
         </Head>
         <Link href="/"><h1 >商品一覧</h1></Link>
         <ItemList />
-        <Link href="./create"><button>商品を登録する</button></Link>
+        <Link href="./create"><button>登録/編集</button></Link>
+        <Link href='./login'><button>ログイン</button></Link>
 
       </>
   );
