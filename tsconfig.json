@@ -17,6 +17,6 @@
     "baseUrl": "src"
   },
 
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/[id].js", "src/pages/post.js", "src/pages/create.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/[id].js", "src/pages/post.js", "src/pages/create.js", "src/pages/login.js"],
   "exclude": ["node_modules"],
 }
