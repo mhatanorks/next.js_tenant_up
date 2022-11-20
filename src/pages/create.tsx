@@ -107,15 +107,19 @@ const Create = () => {
           value="追加"
           onClick={ command }
         />
+
+        <input
+          type="submit"
+          value="削除"
+          onClick={ command }
+        />
       </form>
+
       <App />
     </div>
   );
 };
 export default Create;
-
-// swr or ssg(動的)
-// フラグ　削除　論理削除
 
 /*
 商品一覧画面	
